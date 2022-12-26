@@ -12,8 +12,7 @@ info:
     name: Terms of use
     url: https://www.yelp.com/developers/api_terms
 servers:
-  #- url: http://localhost:8090/v3
-  - url: https://api.yelp.com/v3
+   - url: https://apigatewayvalidation.herokuapp.com/v3
 paths:
   "/businesses/search":
     get:
@@ -89,7 +88,7 @@ paths:
           required: false
           schema:
             type: string
-            pattern: "^[a-z]{2,3}_[A-Z]{2}$"
+            pattern: ^[a-z]{2,3}_[A-Z]{2}$
         - name: limit
           in: query
           description: Optional. Number of business results to return. By default, it
@@ -137,7 +136,7 @@ paths:
           schema:
             type: array
             items:
-              type: string
+              type: integer
               enum:
                 - 1
                 - 2
@@ -178,6 +177,15 @@ paths:
             type: array
             items:
               type: string
+              enum:
+                - hot_and_new
+                - request_a_quote
+                - reservation
+                - waitlist_reservation
+                - deals"
+                - gender_neutral_restrooms
+                - open_to_all
+                - wheelchair_accessible
         - name: device_platform
           in: query
           description: Optional.Determines the platform for mobile_link
@@ -221,8 +229,8 @@ paths:
         - ZeroOrOne(open_now, open_at);
         - offset + limit <= 1000;
         - IF offset AND NOT limit THEN offset <= 980;
-        - AllOrNone(reservation_date, reservation_time, reservation_covers);
-        - IF open_at THEN open_at > 1670457133;
+        #- AllOrNone(reservation_date, reservation_time, reservation_covers);
+        #- IF open_at THEN open_at > 1670457133;
       responses:
         '200':
           description: successful operation
