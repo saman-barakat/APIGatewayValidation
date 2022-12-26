@@ -1,5 +1,5 @@
 
-package es.us.isa.idl.idlgateway.config;
+package es.us.isa.idl.idlgatewayvalidation.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package es.us.isa.idl.idlgateway.model;
+package es.us.isa.idl.idlgatewayvalidation.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
