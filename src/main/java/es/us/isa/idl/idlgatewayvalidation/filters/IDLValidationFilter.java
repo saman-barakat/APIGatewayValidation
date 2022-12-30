@@ -49,7 +49,7 @@ public class IDLValidationFilter extends AbstractGatewayFilterFactory<IDLValidat
                 boolean valid = analyzer.isValidRequest(paramMap);
 
                 if (!valid) {
-                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, analyzer.getRequestExplanation(paramMap).toString());
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The request is not valid!");
                 }
 
                 return chain.filter(exchange);
