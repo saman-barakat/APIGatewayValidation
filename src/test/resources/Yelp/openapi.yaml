@@ -229,8 +229,8 @@ paths:
         - ZeroOrOne(open_now, open_at);
         - offset + limit <= 1000;
         - IF offset AND NOT limit THEN offset <= 980;
-        #- AllOrNone(reservation_date, reservation_time, reservation_covers);
-        #- IF open_at THEN open_at > 1670457133;
+        - AllOrNone(reservation_date, reservation_time, reservation_covers);
+        - IF open_at THEN open_at > 1672681555;
       responses:
         '200':
           description: successful operation
