@@ -14,7 +14,7 @@ info:
 servers:
    - url: https://apigatewayvalidation.herokuapp.com/v3
 paths:
-  /businesses/search:
+  "/businesses/search":
     get:
       summary: Returns businesses based on the provided search criteria.
       description: This endpoint returns up to 1000 businesses based on the provided
@@ -236,7 +236,7 @@ paths:
           description: successful operation
         400:
           description: bad request
-  /transactions/{transaction_type}/search:
+  "/transactions/{transaction_type}/search":
     get:
       operationId: getTransactions
       summary: Get transactions

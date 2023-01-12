@@ -45,7 +45,7 @@ public class IDLValidationFilter extends AbstractGatewayFilterFactory<IDLValidat
                 Analyzer analyzer = null;
 
                     analyzer = new OASAnalyzer("oas", SPEC_URL, operationPath, operationType, false);
-
+                    System.out.println("operationPath" + operationPath);
                 boolean valid = analyzer.isValidRequest(paramMap);
 
                 if (!valid) {
