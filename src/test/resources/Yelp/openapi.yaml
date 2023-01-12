@@ -14,7 +14,7 @@ info:
 servers:
    - url: https://apigatewayvalidation.herokuapp.com/v3
 paths:
-  "/businesses/search":
+  /businesses/search:
     get:
       summary: Returns businesses based on the provided search criteria.
       description: This endpoint returns up to 1000 businesses based on the provided
@@ -234,5 +234,41 @@ paths:
       responses:
         '200':
           description: successful operation
+        400:
+          description: bad request
+  /transactions/{transaction_type}/search:
+    get:
+      operationId: getTransactions
+      summary: Get transactions
+      description: Get transactions
+      parameters:
+        - name: transaction_type
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: query
+          required: false
+          description: "Required when latitude and longitude aren't provided. Address of the location you want to deliver to."
+          schema:
+            type: string
+        - name: latitude
+          in: query
+          required: false
+          description: "Required when latitude and longitude aren't provided. Address of the location you want to deliver to."
+          schema:
+            type: string
+        - name: longitude
+          in: query
+          required: false
+          description: "Required when location isn't provided. Longitude of the location you want to deliver to."
+          schema:
+            type: string
+      x-dependencies:
+        - Or(location, latitude AND longitude);
+      responses:
+        200:
+          description: Returns all businesses
         400:
           description: bad request
