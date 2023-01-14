@@ -2,10 +2,29 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: YelpService
+        - id: YelpAPIBusinesses
           uri: https://api.yelp.com
           predicates:
-             - Path=/v3/businesses/**,/v3/transactions/**
+             - Path=/v3/businesses/**
           filters:
             - IDLValidationFilter
+        - id: YelpAPITransactions
+          uri: https://api.yelp.com
+          predicates:
+             - Path=/v3/transactions/**
+          filters:
+            - IDLValidationFilter
+        - id: DHLAPILocationFinder
+          uri: https://api.dhl.com
+          predicates:
+             - Path=/location-finder/v1/**
+          filters:
+            - IDLValidationFilter
+        - id: FourSquareAPI
+          uri: https://api.foursquare.com
+          predicates:
+             - Path=/v3/places/**
+          filters:
+            - IDLValidationFilter
+          
 
