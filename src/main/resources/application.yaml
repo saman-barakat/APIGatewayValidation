@@ -20,11 +20,5 @@ spring:
              - Path=/location-finder/v1/**
           filters:
             - IDLValidationFilter
-        - id: FourSquareAPI
-          uri: https://api.foursquare.com
-          predicates:
-             - Path=/v3/places/**
-          filters:
-            - IDLValidationFilter
           
 
