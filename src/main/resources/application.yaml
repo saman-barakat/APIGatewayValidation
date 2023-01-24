@@ -6,6 +6,8 @@ spring:
           uri: https://api.yelp.com
           predicates:
              - Path=/v3/businesses/**
+          filters:
+             - IDLValidationFilter
         - id: AmadeusFlightAPI
           uri: https://test.api.amadeus.com
           predicates:
