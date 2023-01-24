@@ -12,7 +12,7 @@ info:
     name: Terms of use
     url: https://www.yelp.com/developers/api_terms
 servers:
-   - url: https://apigatewayvalidation.herokuapp.com/v3
+   - url: https://api.yelp.com/v3
 paths:
   "/businesses/search":
     get:

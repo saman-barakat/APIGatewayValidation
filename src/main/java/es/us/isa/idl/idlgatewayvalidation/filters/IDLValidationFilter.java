@@ -43,22 +43,31 @@ public class IDLValidationFilter extends AbstractGatewayFilterFactory<IDLValidat
             	String operationPath = null;
             	String requestPath = exchange.getRequest().getPath().toString();
  
-                if(requestPath.indexOf("transactions") > -1) {
-                	operationPath = "/transactions/{transaction_type}/search";
-                	SPEC_URL = "./src/test/resources/Yelp/openapi.yaml";
+            	if(requestPath.indexOf("businesses") > -1) {
+                	operationPath = "/businesses/search";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/Yelp/swagger.yaml";
                 }
-                else if(requestPath.indexOf("businesses") > -1) {
-                	operationPath = exchange.getRequest().getPath().subPath(2).toString();
-                	SPEC_URL = "./src/test/resources/Yelp/openapi.yaml";
+                else if(requestPath.indexOf("flight-offers") > -1) {
+                	operationPath = "/shopping/flight-offers";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/AmadeusFlight/swagger.yaml";
                 }
-                else if(requestPath.indexOf("location") > -1) {
-                	operationPath = exchange.getRequest().getPath().subPath(4).toString();
-                	SPEC_URL = "./src/test/resources/DHL/openapi.yaml";
+                else if(requestPath.indexOf("hotel-offers") > -1) {
+                	operationPath = "/shopping/hotel-offers";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/AmadeusHotel/swagger.yaml";
                 }
-                else if(requestPath.indexOf("places") > -1) {
-                	operationPath = exchange.getRequest().getPath().subPath(2).toString();
-                	SPEC_URL = "./src/test/resources/Foursquare/openapi.yaml";
+                else if(requestPath.indexOf("comics") > -1) {
+                	operationPath = "/v1/public/comics/{comicId}";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/Marvel/swagger_getComicById.yaml";
                 }
+                else if(requestPath.indexOf("omdbapi") > -1) {
+                	operationPath = "/";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/OMDb/swagger_byIdOrTitle.yaml";
+                }
+                else if(requestPath.indexOf("youtube") > -1) {
+                	operationPath = "/youtube/v3/videos";
+                	SPEC_URL = "./src/test/resources/GatewayExperiment/YouTube/openapi.yaml";
+                }
+
                 else {
                 	System.out.println( "Path did not match:");
                 }
